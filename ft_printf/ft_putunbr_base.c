@@ -45,21 +45,18 @@ int	ft_putunbr_base(unsigned int nbr, char *base)
 
 	len_base = (int)ft_strlen(base);
 	len = ft_countu_base(nbr, len_base);
-	i = 0;
+	i = -1;
 	if (len_base < 2)
 		return (0);
-	while (base[i] != '\0')
+	while (base[++i] != '\0')
 	{
 		n = i + 1;
 		while (base[n] != '\0')
 		{
 			if (base[n] == base[i])
-			{
 				return (0);
-			}
 			n++;
 		}
-		i++;
 	}
 	ft_makeul_nbr(nbr, len_base, base);
 	return (len);

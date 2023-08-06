@@ -15,10 +15,7 @@
 int	ft_checkp(unsigned long nbr)
 {
 	if (nbr == 0)
-	{
-		write(1, "(nil)", 5);
-		return (5);
-	}
+		return (write(1, "(nil)", 5));
 	else
 	{
 		write(1, "0x", 2);

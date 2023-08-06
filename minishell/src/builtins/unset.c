@@ -6,7 +6,7 @@
 /*   By: pdubacqu <pdubacqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 11:24:36 by pdubacqu          #+#    #+#             */
-/*   Updated: 2023/01/16 14:50:28 by pdubacqu         ###   ########.fr       */
+/*   Updated: 2023/08/06 16:35:30 by pdubacqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ t_envp	*ft_unset(char **argv, char *opt, t_cmds *cmd)
 				return (save);
 			}
 			save = ft_remove_var(cur, save, argv, &i);
+			i++;
 		}
 	}
 	return (save);

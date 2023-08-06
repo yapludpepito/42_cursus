@@ -21,9 +21,8 @@ int	ft_check(char *str)
 		return (0);
 	while (str[i] != '\0')
 	{
-		if (str[i] == '\n')
+		if (str[i++] == '\n')
 			return (0);
-		i++;
 	}
 	if (i < BUFFER_SIZE)
 		return (0);
@@ -70,8 +69,7 @@ char	*get_start_line(char *line_tmp)
 		return (NULL);
 	while (line_tmp[i] != '\n' && line_tmp[i] != '\0')
 	{
-		str[i] = line_tmp[i];
-		i++;
+		str[i] = line_tmp[i++];
 	}
 	if (line_tmp[i] == '\n')
 	{
@@ -102,10 +100,7 @@ char	*get_end_line(char *line_tmp)
 		return (NULL);
 	j = 0;
 	while (line_tmp[i + j] != '\0')
-	{
-		str[j] = line_tmp[i + j];
-		j++;
-	}
+		str[j] = line_tmp[i + j++];
 	return (str);
 }
 

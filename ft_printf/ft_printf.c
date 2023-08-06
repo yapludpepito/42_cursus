@@ -16,6 +16,7 @@ int	ft_check_symbol(const char *s, va_list arg)
 {
 	int	len;
 
+	len = 0;
 	if (s[1] == 'c')
 		return (ft_putchar(va_arg(arg, int)));
 	else if (s[1] == 's')
@@ -23,13 +24,12 @@ int	ft_check_symbol(const char *s, va_list arg)
 		len = ft_putlstr(va_arg(arg, char *));
 		if (len == 0)
 			return (-1);
-		return (len);
 	}
 	else if (s[1] == 'p')
 		return (ft_checkp(va_arg(arg, unsigned long)));
 	else if (s[1] == 'd' || s[1] == 'i')
 		return (ft_putlnbr_base(va_arg(arg, int), "0123456789"));
-	return (0);
+	return (len);
 }
 
 int	ft_check_symbol2(const char *s, va_list arg)
@@ -38,26 +38,14 @@ int	ft_check_symbol2(const char *s, va_list arg)
 
 	len = 0;
 	if (s[1] == 'u')
-	{
 		len = ft_putunbr(va_arg(arg, unsigned int));
-		return (len);
-	}
 	else if (s[1] == 'x')
-	{
 		len = ft_putunbr_base(va_arg(arg, unsigned int), "0123456789abcdef");
-		return (len);
-	}
 	else if (s[1] == 'X')
-	{
 		len = ft_putunbr_base(va_arg(arg, unsigned int), "0123456789ABCDEF");
-		return (len);
-	}
 	else if (s[1] == '%')
-	{
-		write(1, "%", 1);
-		return (1);
-	}
-	return (0);
+		return (write(1, "%", 1));
+	return (len);
 }
 
 int	ft_check(const char *s, va_list arg)
@@ -91,10 +79,7 @@ int	ft_printf(const char *s, ...)
 	while (s[i] != '\0')
 	{
 		if (s[i] == '%')
-		{
-			count += ft_check(&s[i], arg);
-			i++;
-		}
+			count += ft_check(&s[i++], arg);
 		else
 		{
 			ft_putchar(s[i]);

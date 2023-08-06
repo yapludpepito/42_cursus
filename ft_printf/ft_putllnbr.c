@@ -64,9 +64,7 @@ int	ft_putllnbr_base(long long int nbr, char *base)
 		while (base[n] != '\0')
 		{
 			if (base[n] == base[i])
-			{
 				return (0);
-			}
 			n++;
 		}
 		i++;

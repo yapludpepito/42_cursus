@@ -24,19 +24,14 @@ int	ft_atoi(const char *nptr)
 	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
 		i++;
 	if (nptr[i] == '-' || nptr[i] == '+')
-	{
-		if (nptr[i] == '-')
+		if (nptr[i++] == '-')
 			neg *= -1;
-		i++;
-	}
 	while (nptr[i] >= '0' && nptr[i] <= '9')
 	{
-		if ((nbr * neg) <= -2147483648)
-			return (0);
 		if (nbr >= 2147483647)
 			return (-1);
-		nbr = nbr * 10 + (nptr[i] - 48);
-		i++;
+		nbr = nbr * 10 + (nptr[i++] - 48);
 	}
 	return (nbr * neg);
 }
+

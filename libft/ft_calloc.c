@@ -22,7 +22,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 		return (NULL);
 	if (nmemb == 0 || size == 0)
 	{
-		mem = (unsigned char *)malloc(sizeof(char) * 1);
+		mem = malloc(sizeof(char) * 1);
 		mem[0] = '\0';
 		return (mem);
 	}

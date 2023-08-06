@@ -48,11 +48,10 @@ static int	check_nb(long int nb, char **str)
 
 static void	ft_make_str(int i, int minus, char *str, long int nb)
 {
-	while (i >= minus)
+	while (i-- >= minus)
 	{
 		str[i] = (nb % 10) + 48;
 		nb /= 10;
-		i--;
 	}
 }
 

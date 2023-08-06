@@ -71,10 +71,7 @@ int	ft_putlnbr_base(int nbr, char *base)
 	len_base = (int)ft_strlen(base);
 	len = ft_count_base(nbr, len_base);
 	if (nbr == 0)
-	{
-		write(1, "0", 1);
-		return (1);
-	}
+		return (write(1, "0", 1));
 	ft_make_nbr(nbr, len_base, base);
 	return (len);
 }
