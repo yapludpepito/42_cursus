@@ -6,7 +6,7 @@
 /*   By: pdubacqu <pdubacqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/24 15:51:13 by pdubacqu          #+#    #+#             */
-/*   Updated: 2022/11/25 11:13:35 by pdubacqu         ###   ########.fr       */
+/*   Updated: 2023/08/07 15:45:42 by pdubacqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_dupe(t_data *data, char **envp)
 		dup2(data->output_file, 1);
 		ft_close(data->output_file, data->pipe[0]);
 	}
-	while (result != 0 && data->path[++i] != NULL)
+	while (data->path && result != 0 && data->path[++i] != NULL)
 	{
 		data->good_path = ft_strjoin(data->path[i], "/");
 		free(data->path[i]);

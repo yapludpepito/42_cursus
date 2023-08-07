@@ -6,7 +6,7 @@
 /*   By: pdubacqu <pdubacqu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/23 15:49:23 by pdubacqu          #+#    #+#             */
-/*   Updated: 2022/11/27 10:17:07 by pdubacqu         ###   ########.fr       */
+/*   Updated: 2023/08/07 15:47:04 by pdubacqu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	ft_save_data(int argc, char **argv, char **envp, t_data *data)
 	data->input_file = open(argv[1], O_RDONLY);
 	data->output_file
 		= open(argv[argc - 1], O_TRUNC | O_CREAT | O_WRONLY, 0644);
-	while (ft_strncmp(envp[i], "PATH=", (long unsigned int)5) != 0)
+	while (envp && envp[i] && ft_strncmp(envp[i], "PATH=", (long unsigned int)5) != 0)
 		i++;
 	data->good_path = ft_strtrim(envp[i], "PATH=");
 	data->path = ft_split(data->good_path, ':');
@@ -83,7 +83,7 @@ void	ft_free(t_data *data)
 	}
 	free(data->cmd);
 	i = 0;
-	while (data->path[i] != NULL)
+	while (data->path && data->path[i] != NULL)
 	{
 		free(data->path[i]);
 		i++;
